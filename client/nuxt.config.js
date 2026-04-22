@@ -113,7 +113,21 @@ module.exports = {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      postcssOptions: {
+        plugins: {
+          '@tailwindcss/postcss': {}
+        }
+      }
+    },
+    extend(config) {
+      config.performance = {
+        ...config.performance,
+        hints: false
+      }
+    }
+  },
   watchers: {
     webpack: {
       aggregateTimeout: 300,
